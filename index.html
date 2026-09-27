@@ -1,0 +1,536 @@
+<!doctype html>
+<html lang="uk">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>aswa.web: розробка сайтів, SEO та Google Ads у Сумах</title>
+<meta name="description" content="Створюю сайти з нуля і виводжу їх у Google: SEO, Google Maps, Google Ads, Merchant Center та аналітика. Лендінг від 1500 грн. Суми та вся Україна.">
+<link rel="canonical" href="https://aswa-web.vercel.app/">
+<meta name="theme-color" content="#0b0f17">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:site_name" content="aswa.web">
+<meta property="og:title" content="aswa.web: сайти, які приводять клієнтів з Google">
+<meta property="og:description" content="Розробка сайтів з нуля, SEO, Google Maps і реклама. Приклади робіт і ціни.">
+<meta property="og:url" content="https://aswa-web.vercel.app/">
+<meta property="og:image" content="https://aswa-web.vercel.app/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="fonts/onest-cyrillic-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+ {"@type":"ProfessionalService","@id":"https://aswa-web.vercel.app/#service","name":"aswa.web","url":"https://aswa-web.vercel.app/","image":"https://aswa-web.vercel.app/img/og.jpg","description":"Розробка сайтів з нуля, SEO, налаштування Google Ads, Google Analytics, Search Console, Google Maps і Merchant Center.","areaServed":[{"@type":"City","name":"Суми"},{"@type":"Country","name":"Україна"}],"address":{"@type":"PostalAddress","addressLocality":"Суми","addressCountry":"UA"},"priceRange":"від 1500 грн","sameAs":["https://www.instagram.com/aswa.web/"],
+  "hasOfferCatalog":{"@type":"OfferCatalog","name":"Послуги","itemListElement":[
+   {"@type":"Offer","itemOffered":{"@type":"Service","name":"Лендінг"},"priceSpecification":{"@type":"PriceSpecification","minPrice":1500,"priceCurrency":"UAH"}},
+   {"@type":"Offer","itemOffered":{"@type":"Service","name":"Сайт-візитка"},"priceSpecification":{"@type":"PriceSpecification","minPrice":2500,"priceCurrency":"UAH"}},
+   {"@type":"Offer","itemOffered":{"@type":"Service","name":"Сайт-каталог"},"priceSpecification":{"@type":"PriceSpecification","minPrice":4000,"priceCurrency":"UAH"}},
+   {"@type":"Offer","itemOffered":{"@type":"Service","name":"Інтернет-магазин"},"priceSpecification":{"@type":"PriceSpecification","minPrice":6000,"priceCurrency":"UAH"}},
+   {"@type":"Offer","itemOffered":{"@type":"Service","name":"SEO-аудит і семантика"},"priceSpecification":{"@type":"PriceSpecification","minPrice":3000,"priceCurrency":"UAH"}},
+   {"@type":"Offer","itemOffered":{"@type":"Service","name":"Telegram-бот"},"priceSpecification":{"@type":"PriceSpecification","minPrice":2000,"priceCurrency":"UAH"}}]}},
+ {"@type":"WebSite","@id":"https://aswa-web.vercel.app/#site","url":"https://aswa-web.vercel.app/","name":"aswa.web","inLanguage":"uk"}
+]}
+</script>
+<style>
+@font-face{font-family:'Onest';font-style:normal;font-display:swap;font-weight:100 900;src:url(fonts/onest-cyrillic-wght-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'Onest';font-style:normal;font-display:swap;font-weight:100 900;src:url(fonts/onest-latin-wght-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'JB Mono';font-style:normal;font-display:swap;font-weight:500;src:url(fonts/jetbrains-mono-cyrillic-500-normal.woff2) format('woff2');unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:'JB Mono';font-style:normal;font-display:swap;font-weight:500;src:url(fonts/jetbrains-mono-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+2000-206F,U+20AC,U+2122,U+2212}
+
+:root{
+  --bg:#0b0f17; --bg2:#0f1520; --s1:#131b28; --s2:#182233; --line:#1f2a3c; --line2:#2a3850;
+  --tx:#e9eef6; --tx2:#a3afc2; --tx3:#75829a;
+  --ac:#3d7bff; --ac2:#6b9bff; --ac-ink:#ffffff; --ac-soft:rgba(61,123,255,.14);
+  --r:18px; --r-sm:12px; --r-pill:999px;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --shadow:0 30px 70px -30px rgba(4,10,24,.9);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 16px/1.6 'Onest',system-ui,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+h1,h2,h3,p{margin:0}
+h1,h2,h3{text-wrap:balance;letter-spacing:-.025em;line-height:1.08;font-weight:700}
+p{text-wrap:pretty}
+.mono{font-family:'JB Mono',ui-monospace,monospace;font-weight:500}
+.wrap{max-width:1240px;margin:0 auto;padding:0 32px}
+.skip{position:absolute;left:-9999px;top:8px;z-index:100;background:var(--ac);color:#fff;padding:10px 16px;border-radius:10px}
+.skip:focus{left:8px}
+:focus-visible{outline:2px solid var(--ac2);outline-offset:3px;border-radius:6px}
+svg.i{width:1.15em;height:1.15em;flex-shrink:0;fill:currentColor}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:
+  radial-gradient(900px 600px at 85% -10%,rgba(61,123,255,.18),transparent 60%),
+  radial-gradient(700px 500px at -10% 40%,rgba(61,123,255,.07),transparent 60%)}
+main,header,footer{position:relative;z-index:1}
+
+/* buttons */
+.btn{display:inline-flex;align-items:center;gap:10px;height:52px;padding:0 24px;border-radius:var(--r-pill);font:600 16px/1 'Onest',sans-serif;white-space:nowrap;border:1px solid transparent;cursor:pointer;transition:transform .25s var(--ease),background .25s,border-color .25s,box-shadow .25s}
+.btn:active{transform:translateY(1px) scale(.98)}
+.btn-p{background:var(--ac);color:var(--ac-ink);box-shadow:0 12px 30px -12px rgba(61,123,255,.8),inset 0 1px 0 rgba(255,255,255,.2)}
+.btn-p:hover{background:#4d87ff;transform:translateY(-2px)}
+.btn-g{border-color:var(--line2);color:var(--tx);background:rgba(255,255,255,.02)}
+.btn-g:hover{border-color:var(--ac);background:var(--ac-soft);transform:translateY(-2px)}
+.btn .i{width:20px;height:20px}
+.btn .arr{transition:transform .25s var(--ease)}
+.btn:hover .arr{transform:translate(3px,-3px)}
+.lnk{display:inline-flex;align-items:center;gap:8px;font-weight:600;color:var(--ac2);transition:gap .25s var(--ease),color .2s}
+.lnk:hover{gap:12px;color:#8fb3ff}
+
+/* header */
+.hdr{position:sticky;top:0;z-index:20;background:rgba(11,15,23,.72);backdrop-filter:blur(14px) saturate(140%);-webkit-backdrop-filter:blur(14px) saturate(140%);border-bottom:1px solid rgba(255,255,255,.05)}
+.hdr .wrap{height:68px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:19px;letter-spacing:-.02em}
+.logo b{width:34px;height:34px;border-radius:10px;background:var(--ac);display:grid;place-items:center;color:#fff;box-shadow:inset 0 1px 0 rgba(255,255,255,.25)}
+.logo b .i{width:20px;height:20px}
+.logo em{font-style:normal;color:var(--ac2)}
+.nav{display:flex;gap:2px}
+.nav a{padding:9px 14px;border-radius:var(--r-pill);font-size:15px;font-weight:500;color:var(--tx2);transition:color .2s,background .2s}
+.nav a:hover,.nav a.on{color:var(--tx);background:rgba(255,255,255,.06)}
+.hdr .btn{height:42px;padding:0 18px;font-size:15px}
+
+/* hero */
+.hero{padding:72px 0 88px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:48px;align-items:center}
+.hero h1{font-size:clamp(38px,4.1vw,58px);line-height:1.02;letter-spacing:-.035em}
+.hero h1 span{color:var(--ac2)}
+.hero .sub{margin-top:22px;font-size:clamp(17px,1.5vw,19px);color:var(--tx2);max-width:44ch}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.in1{animation:up .9s var(--ease) both}.in2{animation:up .9s .1s var(--ease) both}.in3{animation:up .9s .2s var(--ease) both}
+@keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:none}}
+
+.stage{position:relative;aspect-ratio:1.18;min-width:0}
+.frame{position:absolute;border-radius:14px;overflow:hidden;background:var(--s1);border:1px solid var(--line2);box-shadow:var(--shadow)}
+.frame .bar{height:30px;display:flex;align-items:center;gap:6px;padding:0 12px;background:#101724;border-bottom:1px solid var(--line)}
+.frame .bar i{width:9px;height:9px;border-radius:50%;background:#2b3a52}
+.frame .bar span{margin-left:10px;font-size:11px;color:var(--tx3)}
+.frame img{width:100%;height:calc(100% - 30px);object-fit:cover;object-position:top left}
+.f1{left:0;top:0;width:88%;aspect-ratio:1.62;animation:up 1s .2s var(--ease) both}
+.f2{right:0;bottom:0;width:62%;aspect-ratio:1.55;animation:up 1s .38s var(--ease) both;box-shadow:0 40px 80px -30px rgba(0,0,0,.95),0 0 0 1px rgba(255,255,255,.04)}
+.stage::after{content:"";position:absolute;inset:14% 6% 0 20%;z-index:-1;background:radial-gradient(closest-side,rgba(61,123,255,.35),transparent);filter:blur(30px)}
+
+/* tools */
+.tools{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(15,21,32,.6)}
+.tools .wrap{display:flex;align-items:center;gap:40px;padding-top:26px;padding-bottom:26px;flex-wrap:wrap}
+.tools p{font-size:14px;color:var(--tx3);font-weight:500;flex-shrink:0}
+.logos{display:flex;align-items:center;justify-content:space-between;gap:34px;flex:1;flex-wrap:wrap}
+.logos svg{width:30px;height:30px;fill:#8d9ab0;transition:fill .25s,transform .25s var(--ease)}
+.logos a:hover svg,.logos span:hover svg{fill:#fff;transform:translateY(-2px)}
+
+/* section base */
+.sec{padding:120px 0}
+.eyebrow{font-family:'JB Mono',monospace;font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--ac2);font-weight:500}
+.h2{font-size:clamp(32px,4vw,52px);letter-spacing:-.03em;max-width:20ch}
+.lead{color:var(--tx2);font-size:18px;max-width:58ch;margin-top:18px}
+.rv{opacity:0;transform:translateY(30px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
+
+/* case 1 */
+.case-head{display:flex;flex-direction:column;gap:16px;margin-bottom:48px}
+.case-head .h2{max-width:22ch}
+.c1{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:48px;align-items:start}
+.groups{display:grid;gap:26px}
+.grp h3{font-size:15px;font-weight:600;color:var(--tx3);letter-spacing:0;margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 14px;border-radius:var(--r-pill);background:var(--s1);border:1px solid var(--line);font-size:14px;font-weight:500;color:var(--tx)}
+.chip svg{width:16px;height:16px;fill:var(--ac2)}
+.c1-actions{display:flex;gap:18px;align-items:center;margin-top:34px;flex-wrap:wrap}
+
+.viewer{min-width:0}
+.tabs{display:flex;gap:6px;padding:5px;border-radius:var(--r-pill);background:var(--s1);border:1px solid var(--line);width:max-content;max-width:100%;overflow-x:auto;scrollbar-width:none;margin-bottom:16px}
+.tabs::-webkit-scrollbar{display:none}
+.tabs button{height:38px;padding:0 16px;border:0;border-radius:var(--r-pill);background:transparent;color:var(--tx2);font:500 14px 'Onest',sans-serif;cursor:pointer;white-space:nowrap;transition:background .25s,color .25s}
+.tabs button:hover{color:var(--tx)}
+.tabs button[aria-selected="true"]{background:var(--ac);color:#fff}
+.screen{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--line2);background:var(--s1);box-shadow:var(--shadow);aspect-ratio:1552/802}
+.screen .bar{height:30px;display:flex;align-items:center;gap:6px;padding:0 12px;background:#101724;border-bottom:1px solid var(--line)}
+.screen .bar i{width:9px;height:9px;border-radius:50%;background:#2b3a52}
+.screen .bar span{margin-left:10px;font-size:12px;color:var(--tx3)}
+.screen figure{position:absolute;inset:30px 0 0;margin:0;opacity:0;transition:opacity .5s var(--ease)}
+.screen figure.on{opacity:1}
+.screen figure img{width:100%;height:100%;object-fit:cover;object-position:top center}
+.screen figure.fit{background:#fff;display:grid;place-items:center}
+.screen figure.fit img{object-fit:contain;height:100%;width:auto}
+.cap{margin-top:12px;font-size:14px;color:var(--tx3);min-height:1.6em}
+
+.bento{display:grid;grid-template-columns:1.25fr 1fr 1fr;grid-template-rows:auto auto;gap:14px;margin-top:56px}
+.cell{border-radius:var(--r);padding:26px;background:var(--s1);border:1px solid var(--line);display:flex;flex-direction:column;justify-content:space-between;gap:28px;min-height:190px;position:relative;overflow:hidden}
+.cell .num{font-size:clamp(40px,4.4vw,60px);font-weight:700;letter-spacing:-.04em;line-height:1}
+.cell .num small{font-size:.45em;color:var(--tx2);font-weight:600;letter-spacing:-.01em;margin-left:4px}
+.cell p{color:var(--tx2);font-size:15px;max-width:30ch}
+.cell.big{grid-row:span 2;background:linear-gradient(160deg,#1b3a86 0%,#132a5e 45%,#0f1d3d 100%);border-color:#2b4a93}
+.cell.big::after{content:"";position:absolute;right:-60px;bottom:-60px;width:260px;height:260px;border-radius:50%;background:radial-gradient(closest-side,rgba(107,155,255,.45),transparent)}
+.cell.big .num{font-size:clamp(64px,7vw,104px)}
+.cell.big p{color:#c9d7f5;font-size:17px;max-width:26ch}
+.serp{background:#fff;color:#1f1f1f;border-radius:12px;padding:12px 14px;font:13px/1.35 Arial,sans-serif;box-shadow:0 20px 40px -20px rgba(0,0,0,.6);max-width:330px;position:relative;z-index:1}
+.serp .u{color:#4d5156;font-size:12px}
+.serp .t{color:#1a0dab;font-size:16px;margin-top:3px}
+.serp .q{display:flex;align-items:center;gap:8px;border:1px solid #dfe1e5;border-radius:999px;padding:7px 12px;margin-bottom:10px;color:#202124}
+.serp .q svg{width:14px;height:14px;fill:#9aa0a6}
+.stars{display:flex;gap:3px;color:#f5c542}
+.stars svg{width:20px;height:20px;fill:currentColor}
+.cell.img{padding:0;min-height:0}
+.cell.img img{width:100%;height:100%;object-fit:cover;object-position:top left}
+
+/* case 2 */
+.c2{position:relative;border-radius:28px;overflow:hidden;border:1px solid var(--line2);background:#0e0f11;isolation:isolate}
+.c2-media{display:grid;grid-template-columns:1.4fr 1fr;grid-template-rows:1fr 1fr;gap:10px;padding:10px;height:560px}
+.c2-media div{border-radius:18px;overflow:hidden;background:#15171a}
+.c2-media div:first-child{grid-row:span 2}
+.c2-media img{width:100%;height:100%;object-fit:cover;object-position:top left;transition:transform 1.2s var(--ease)}
+.c2:hover .c2-media img{transform:scale(1.03)}
+.c2-body{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:40px;padding:40px 44px 44px;align-items:end;border-top:1px solid #23252a}
+.c2-body h3{font-size:clamp(28px,3vw,40px);letter-spacing:-.03em}
+.c2-body p{color:#b7bcc5;font-size:17px;margin-top:14px;max-width:48ch}
+.c2-side{display:flex;flex-direction:column;gap:22px;align-items:flex-start}
+.c2 .chip{background:#18191c;border-color:#2a2c31}
+.c2 .chip svg{fill:#f0cf1f}
+.c2 .btn-p{background:#f0cf1f;color:#121315;box-shadow:0 12px 30px -12px rgba(240,207,31,.6)}
+.c2 .btn-p:hover{background:#ffe04d}
+
+/* demo offer */
+.offer{text-align:center;padding:130px 0}
+.offer .h2{margin:0 auto;max-width:18ch;font-size:clamp(34px,4.8vw,64px)}
+.offer .h2 span{color:var(--ac2)}
+.offer .lead{margin:22px auto 0;max-width:52ch}
+
+/* prices */
+.prices-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:14px;margin-top:48px}
+.price{grid-column:span 3;border-radius:var(--r);padding:28px 26px;background:var(--s1);border:1px solid var(--line);display:flex;flex-direction:column;gap:18px;transition:transform .35s var(--ease),border-color .3s}
+.price:hover{transform:translateY(-4px);border-color:var(--line2)}
+.price .ic{width:46px;height:46px;border-radius:14px;background:var(--ac-soft);display:grid;place-items:center;color:var(--ac2)}
+.price .ic svg{width:24px;height:24px}
+.price h3{font-size:20px;letter-spacing:-.02em}
+.price .from{font-size:14px;color:var(--tx3)}
+.price .amt{font-size:36px;font-weight:700;letter-spacing:-.03em;line-height:1;margin-top:4px}
+.price .amt small{font-size:16px;color:var(--tx2);font-weight:500;letter-spacing:0}
+.price p{color:var(--tx2);font-size:15px;flex:1}
+.price .time{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--tx2);padding-top:16px;border-top:1px solid var(--line)}
+.price .time svg{width:16px;height:16px;fill:var(--ac2)}
+.price.feat{background:linear-gradient(170deg,#16274a,#121c2f 60%);border-color:#2d4677}
+.also{grid-column:span 12;display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-top:6px}
+.also > div{border-radius:var(--r);padding:22px 24px;border:1px dashed var(--line2);display:flex;justify-content:space-between;align-items:center;gap:16px}
+.also h3{font-size:17px;letter-spacing:-.01em}
+.also p{font-size:14px;color:var(--tx3);margin-top:4px}
+.also b{font-size:18px;white-space:nowrap}
+.note{margin-top:22px;color:var(--tx3);font-size:14px;max-width:80ch}
+
+/* process */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);margin-top:56px;counter-reset:s;position:relative}
+.steps::before{content:"";position:absolute;left:0;right:0;top:23px;height:1px;background:linear-gradient(90deg,var(--ac),var(--line2) 60%,transparent)}
+.step{padding-right:28px;position:relative}
+.step .dot{width:46px;height:46px;border-radius:50%;background:var(--bg);border:1px solid var(--line2);display:grid;place-items:center;color:var(--ac2);position:relative}
+.step .dot svg{width:22px;height:22px}
+.step:first-child .dot{background:var(--ac);border-color:var(--ac);color:#fff}
+.step h3{font-size:21px;margin-top:22px}
+.step p{color:var(--tx2);font-size:15px;margin-top:8px;max-width:28ch}
+
+/* contact */
+.contact{padding:40px 0 120px}
+.cbox{border-radius:32px;padding:72px;background:radial-gradient(120% 140% at 100% 0%,#2a5bd7 0%,#1a3a8c 35%,#101a33 75%);border:1px solid #2d4a8f;display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:48px;align-items:center;position:relative;overflow:hidden}
+.cbox h2{font-size:clamp(34px,4.4vw,58px);letter-spacing:-.035em}
+.cbox p{color:#cddaf7;font-size:18px;margin-top:18px;max-width:46ch}
+.cbox .btn-p{background:#fff;color:#0b1a3d;box-shadow:0 16px 40px -16px rgba(0,0,0,.6)}
+.cbox .btn-p:hover{background:#eaf0ff}
+.igcard{justify-self:end;width:100%;max-width:360px;background:rgba(9,14,28,.55);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:22px;box-shadow:inset 0 1px 0 rgba(255,255,255,.08)}
+.igcard .top{display:flex;gap:14px;align-items:center}
+.igcard .av{width:56px;height:56px;border-radius:50%;padding:2px;background:linear-gradient(45deg,#f9ce34,#ee2a7b,#6228d7)}
+.igcard .av span{width:100%;height:100%;border-radius:50%;background:#0f1a33;display:grid;place-items:center;border:2px solid #0b1224;color:#fff}
+.igcard .av svg{width:24px;height:24px}
+.igcard b{display:block;font-size:17px}
+.igcard small{color:#aebbd8;font-size:13px}
+.igcard ul{list-style:none;padding:0;margin:18px 0 20px;display:grid;gap:9px;font-size:15px;color:#dfe7fa}
+.igcard li{display:flex;gap:10px;align-items:center}
+.igcard li svg{width:18px;height:18px;fill:#8fb3ff}
+.igcard .btn{width:100%;justify-content:center}
+
+footer{border-top:1px solid var(--line);padding:30px 0}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;color:var(--tx3);font-size:14px}
+footer a:hover{color:var(--tx)}
+
+/* responsive */
+@media (max-width:1024px){
+  .nav{display:none}
+  .hero .wrap{grid-template-columns:1fr;gap:48px}
+  .stage{max-width:680px}
+  .c1{grid-template-columns:1fr}
+  .bento{grid-template-columns:1fr 1fr}
+  .cell.big{grid-column:span 2;grid-row:auto}
+  .price{grid-column:span 6}
+  .also{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr;row-gap:40px}
+  .steps::before{display:none}
+  .c2-body{grid-template-columns:1fr}
+  .cbox{grid-template-columns:1fr;padding:48px}
+  .igcard{justify-self:start}
+}
+@media (max-width:767px){
+  .wrap{padding:0 18px}
+  .hdr .wrap{height:60px}
+  .hdr .btn span{display:none}
+  .hdr .btn{width:42px;padding:0;justify-content:center}
+  .hero{padding:44px 0 64px}
+  .hero .ctas .btn{flex:1 1 auto;justify-content:center}
+  .stage{aspect-ratio:1.1}
+  .tools .wrap{gap:18px;flex-direction:column;align-items:flex-start}
+  .logos{display:grid;grid-template-columns:repeat(4,1fr);gap:22px 0;width:100%;justify-items:center}
+  .logos svg{width:26px;height:26px}
+  .sec{padding:84px 0}
+  .bento{grid-template-columns:1fr}
+  .cell.big{grid-column:auto}
+  .cell.img{aspect-ratio:1.4}
+  .price{grid-column:span 12}
+  .steps{grid-template-columns:1fr}
+  .c2-media{height:auto;grid-template-columns:1fr;grid-template-rows:none}
+  .c2-media div:first-child{grid-row:auto}
+  .c2-media div{aspect-ratio:1.6}
+  .c2-media div:nth-child(3){display:none}
+  .c2-body{padding:28px 22px 30px}
+  .offer{padding:90px 0}
+  .contact{padding:10px 0 84px}
+  .cbox{padding:34px 22px;border-radius:24px}
+  .cbox .btn{width:100%;justify-content:center}
+  .also > div{flex-direction:column;align-items:flex-start}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+  .rv{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Перейти до змісту</a>
+
+<header class="hdr">
+  <div class="wrap">
+    <a href="#top" class="logo" aria-label="aswa.web, на початок"><b><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M69.12,94.15,28.5,128l40.62,33.85a8,8,0,1,1-10.24,12.29l-48-40a8,8,0,0,1,0-12.29l48-40a8,8,0,0,1,10.24,12.3Zm176,27.7-48-40a8,8,0,1,0-10.24,12.3L227.5,128l-40.62,33.85a8,8,0,1,0,10.24,12.29l48-40a8,8,0,0,0,0-12.29ZM162.73,32.48a8,8,0,0,0-10.25,4.79l-64,176a8,8,0,0,0,4.79,10.26A8.14,8.14,0,0,0,96,224a8,8,0,0,0,7.52-5.27l64-176A8,8,0,0,0,162.73,32.48Z"/></svg></b><span>aswa<em>.web</em></span></a>
+    <nav class="nav" aria-label="Навігація">
+      <a href="#work">Роботи</a>
+      <a href="#prices">Ціни</a>
+      <a href="#process">Як працюю</a>
+      <a href="#contact">Контакт</a>
+    </nav>
+    <a class="btn btn-p" href="https://ig.me/m/aswa.web" target="_blank" rel="noopener" aria-label="Написати в Instagram"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"/></svg><span>Написати в Instagram</span></a>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <h1 class="in1">Сайти, які приводять клієнтів <span>з&nbsp;Google</span></h1>
+      <p class="sub in2">Розробляю сайти з нуля і виводжу їх у пошук: SEO, Google Maps, реклама та аналітика. Суми та вся Україна.</p>
+      <div class="ctas in3">
+        <a class="btn btn-p" href="https://ig.me/m/aswa.web" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"/></svg>Написати в Instagram</a>
+        <a class="btn btn-g" href="#work">Дивитися роботи<svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M221.66,133.66l-72,72a8,8,0,0,1-11.32-11.32L196.69,136H40a8,8,0,0,1,0-16H196.69L138.34,61.66a8,8,0,0,1,11.32-11.32l72,72A8,8,0,0,1,221.66,133.66Z"/></svg></a>
+      </div>
+    </div>
+    <div class="stage" aria-hidden="true">
+      <div class="frame f1"><div class="bar"><i></i><i></i><i></i><span>texnoplaza.sumy.ua</span></div><img src="img/tp-home.jpg" alt="" fetchpriority="high"></div>
+      <div class="frame f2"><div class="bar"><i></i><i></i><i></i><span>power-place демо</span></div><img src="img/pp-hero.jpg" alt=""></div>
+    </div>
+  </div>
+</section>
+
+<section class="tools" aria-label="Інструменти">
+  <div class="wrap">
+    <p>Налаштовую та підключаю</p>
+    <div class="logos">
+      <span title="Google Ads"><svg aria-label="Google Ads" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3.9998 22.9291C1.7908 22.9291 0 21.1383 0 18.9293s1.7908-3.9998 3.9998-3.9998 3.9998 1.7908 3.9998 3.9998-1.7908 3.9998-3.9998 3.9998zm19.4643-6.0004L15.4632 3.072C14.3586 1.1587 11.9121.5028 9.9988 1.6074S7.4295 5.1585 8.5341 7.0718l8.0009 13.8567c1.1046 1.9133 3.5511 2.5679 5.4644 1.4646 1.9134-1.1046 2.568-3.5511 1.4647-5.4644zM7.5137 4.8438L1.5645 15.1484A4.5 4.5 0 0 1 4 14.4297c2.5597-.0075 4.6248 2.1585 4.4941 4.7148l3.2168-5.5723-3.6094-6.25c-.4499-.7793-.6322-1.6394-.5878-2.4784z"/></svg></span>
+      <span title="Google Analytics"><svg aria-label="Google Analytics" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M22.84 2.9982v17.9987c.0086 1.6473-1.3197 2.9897-2.967 2.9984a2.9808 2.9808 0 01-.3677-.0208c-1.528-.226-2.6477-1.5558-2.6105-3.1V3.1204c-.0369-1.5458 1.0856-2.8762 2.6157-3.1 1.6361-.1915 3.1178.9796 3.3093 2.6158.014.1201.0208.241.0202.3619zM4.1326 18.0548c-1.6417 0-2.9726 1.331-2.9726 2.9726C1.16 22.6691 2.4909 24 4.1326 24s2.9726-1.3309 2.9726-2.9726-1.331-2.9726-2.9726-2.9726zm7.8728-9.0098c-.0171 0-.0342 0-.0513.0003-1.6495.0904-2.9293 1.474-2.891 3.1256v7.9846c0 2.167.9535 3.4825 2.3505 3.763 1.6118.3266 3.1832-.7152 3.5098-2.327.04-.1974.06-.3983.0593-.5998v-8.9585c.003-1.6474-1.33-2.9852-2.9773-2.9882z"/></svg></span>
+      <span title="Google Search Console"><svg aria-label="Google Search Console" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M8.548 1.156L6.832 2.872v1.682h1.716zm0 3.398v.035H6.832v-.035H3.386L0 7.844v3.577h2.826V8.94c0-.525.429-.954.954-.954h16.476c.525 0 .954.43.954.954v2.48h2.754V7.844l-3.386-3.29H17.3v.035h-1.717v-.035zm7.035 0H17.3V2.872l-1.717-1.716zM8.679 1.188V2.84h6.773V1.188zm11.471 7.07a.834.834 0 00-.132.01l-.543.002c-5.216.014-10.432-.008-15.648.01-.435-.063-.794.436-.716.883v2.264h17.812c-.016-.888.045-1.782-.034-2.666-.104-.342-.427-.502-.739-.502zm-15.422.634a.689.698 0 01.689.698.689.698 0 01-.689.697.689.698 0 01-.688-.697.689.698 0 01.688-.698zm2.134 0a.689.698 0 01.689.698.689.698 0 01-.689.697.689.698 0 01-.688-.697.689.698 0 01.688-.698zM.036 11.645v9.156c0 1.05.858 1.908 1.907 1.908h.883V11.645zm21.174 0v11.064h.882c1.05 0 1.908-.858 1.908-1.908v-9.156zM4.057 13.133v6.85h6.137v-6.85zm13.243.021v3.777l-1.708.977-1.708-.977v-3.758a4.006 4.006 0 000 7.23v2.441h3.457v-2.442a4.006 4.006 0 00-.041-7.248zm-13.243 8.26v1.43h7.925v-1.43z"/></svg></span>
+      <span title="Google Tag Manager"><svg aria-label="Google Tag Manager" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.003 0a3 3 0 0 0-2.121 5.121l6.865 6.865-4.446 4.541 1.745 1.836a3.432 3.432 0 0 1 .7.739l.012.011-.001.002a3.432 3.432 0 0 1 .609 1.953 3.432 3.432 0 0 1-.09.78l7.75-7.647c.031-.029.067-.05.098-.08.023-.023.038-.052.06-.076a2.994 2.994 0 0 0-.06-4.166l-9-9A2.99 2.99 0 0 0 12.003 0zM8.63 2.133L.88 9.809a2.998 2.998 0 0 0 0 4.238l7.7 7.75a3.432 3.432 0 0 1-.077-.729 3.432 3.432 0 0 1 3.431-3.431 3.432 3.432 0 0 1 .826.101l-5.523-5.81 4.371-4.373-2.08-2.08c-.903-.904-1.193-2.183-.898-3.342zm3.304 16.004a2.932 2.932 0 0 0-2.931 2.931A2.932 2.932 0 0 0 11.934 24a2.932 2.932 0 0 0 2.932-2.932 2.932 2.932 0 0 0-2.932-2.931z"/></svg></span>
+      <span title="Google Maps"><svg aria-label="Google Maps" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19.527 4.799c1.212 2.608.937 5.678-.405 8.173-1.101 2.047-2.744 3.74-4.098 5.614-.619.858-1.244 1.75-1.669 2.727-.141.325-.263.658-.383.992-.121.333-.224.673-.34 1.008-.109.314-.236.684-.627.687h-.007c-.466-.001-.579-.53-.695-.887-.284-.874-.581-1.713-1.019-2.525-.51-.944-1.145-1.817-1.79-2.671L19.527 4.799zM8.545 7.705l-3.959 4.707c.724 1.54 1.821 2.863 2.871 4.18.247.31.494.622.737.936l4.984-5.925-.029.01c-1.741.601-3.691-.291-4.392-1.987a3.377 3.377 0 0 1-.209-.716c-.063-.437-.077-.761-.004-1.198l.001-.007zM5.492 3.149l-.003.004c-1.947 2.466-2.281 5.88-1.117 8.77l4.785-5.689-.058-.05-3.607-3.035zM14.661.436l-3.838 4.563a.295.295 0 0 1 .027-.01c1.6-.551 3.403.15 4.22 1.626.176.319.323.683.377 1.045.068.446.085.773.012 1.22l-.003.016 3.836-4.561A8.382 8.382 0 0 0 14.67.439l-.009-.003zM9.466 5.868L14.162.285l-.047-.012A8.31 8.31 0 0 0 11.986 0a8.439 8.439 0 0 0-6.169 2.766l-.016.018 3.665 3.084z"/></svg></span>
+      <span title="Google Merchant Center"><svg aria-label="Google" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12.48 10.92v3.28h7.84c-.24 1.84-.853 3.187-1.787 4.133-1.147 1.147-2.933 2.4-6.053 2.4-4.827 0-8.6-3.893-8.6-8.72s3.773-8.72 8.6-8.72c2.6 0 4.507 1.027 5.907 2.347l2.307-2.307C18.747 1.44 16.133 0 12.48 0 5.867 0 .307 5.387.307 12s5.56 12 12.173 12c3.573 0 6.267-1.173 8.373-3.36 2.16-2.16 2.84-5.213 2.84-7.667 0-.76-.053-1.467-.173-2.053H12.48z"/></svg></span>
+      <span title="Telegram"><svg aria-label="Telegram" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg></span>
+      <span title="Netlify"><svg aria-label="Netlify" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M6.49 19.04h-.23L5.13 17.9v-.23l1.73-1.71h1.2l.15.15v1.2L6.5 19.04ZM5.13 6.31V6.1l1.13-1.13h.23L8.2 6.68v1.2l-.15.15h-1.2L5.13 6.31Zm9.96 9.09h-1.65l-.14-.13v-3.83c0-.68-.27-1.2-1.1-1.23-.42 0-.9 0-1.43.02l-.07.08v4.96l-.14.14H8.9l-.13-.14V8.73l.13-.14h3.7a2.6 2.6 0 0 1 2.61 2.6v4.08l-.13.14Zm-8.37-2.44H.14L0 12.82v-1.64l.14-.14h6.58l.14.14v1.64l-.14.14Zm17.14 0h-6.58l-.14-.14v-1.64l.14-.14h6.58l.14.14v1.64l-.14.14ZM11.05 6.55V1.64l.14-.14h1.65l.14.14v4.9l-.14.14h-1.65l-.14-.13Zm0 15.81v-4.9l.14-.14h1.65l.14.13v4.91l-.14.14h-1.65l-.14-.14Z"/></svg></span>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="work">
+  <div class="wrap">
+    <div class="case-head rv">
+      <span class="eyebrow">Роботи</span>
+      <h2 class="h2">TexnoPlaza: магазин техніки в Сумах під ключ</h2>
+      <p class="lead">Інтернет-магазин побутової техніки з нуля: від дизайну й каталогу до домену, хостингу, SEO та реклами в Google.</p>
+    </div>
+
+    <div class="c1">
+      <div class="rv">
+        <div class="groups">
+          <div class="grp"><h3>Розробка</h3><div class="chips">
+            <span class="chip"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M216,40H40A16,16,0,0,0,24,56V200a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A16,16,0,0,0,216,40Zm0,16V88H40V56Zm0,144H40V104H216v96Z"/></svg>Дизайн і верстка</span><span class="chip"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M232,96a7.89,7.89,0,0,0-.3-2.2L217.35,43.6A16.07,16.07,0,0,0,202,32H54A16.07,16.07,0,0,0,38.65,43.6L24.31,93.8A7.89,7.89,0,0,0,24,96h0v16a40,40,0,0,0,16,32v72a8,8,0,0,0,8,8H208a8,8,0,0,0,8-8V144a40,40,0,0,0,16-32V96ZM54,48H202l11.42,40H42.61Zm50,56h48v8a24,24,0,0,1-48,0Zm-16,0v8a24,24,0,0,1-35.12,21.26,7.88,7.88,0,0,0-1.82-1.06A24,24,0,0,1,40,112v-8ZM200,208H56V151.2a40.57,40.57,0,0,0,8,.8,40,40,0,0,0,32-16,40,40,0,0,0,64,0,40,40,0,0,0,32,16,40.57,40.57,0,0,0,8-.8Zm4.93-75.8a8.08,8.08,0,0,0-1.8,1.05A24,24,0,0,1,168,112v-8h48v8A24,24,0,0,1,204.93,132.2Z"/></svg>Каталог з фільтрами</span><span class="chip"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M247.15,212.42l-56-112a8,8,0,0,0-14.31,0l-21.71,43.43A88,88,0,0,1,108,126.93,103.65,103.65,0,0,0,135.69,64H160a8,8,0,0,0,0-16H104V32a8,8,0,0,0-16,0V48H32a8,8,0,0,0,0,16h87.63A87.76,87.76,0,0,1,96,116.35a87.74,87.74,0,0,1-19-31,8,8,0,1,0-15.08,5.34A103.63,103.63,0,0,0,84,127a87.55,87.55,0,0,1-52,17,8,8,0,0,0,0,16,103.46,103.46,0,0,0,64-22.08,104.18,104.18,0,0,0,51.44,21.31l-26.6,53.19a8,8,0,0,0,14.31,7.16L148.94,192h70.11l13.79,27.58A8,8,0,0,0,240,224a8,8,0,0,0,7.15-11.58ZM156.94,176,184,121.89,211.05,176Z"/></svg>UA / RU / EN</span><span class="chip"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M176,16H80A24,24,0,0,0,56,40V216a24,24,0,0,0,24,24h96a24,24,0,0,0,24-24V40A24,24,0,0,0,176,16ZM72,64H184V192H72Zm8-32h96a8,8,0,0,1,8,8v8H72V40A8,8,0,0,1,80,32Zm96,192H80a8,8,0,0,1-8-8v-8H184v8A8,8,0,0,1,176,224Z"/></svg>Адаптив</span><span class="chip"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M128,24h0A104,104,0,1,0,232,128,104.12,104.12,0,0,0,128,24Zm88,104a87.61,87.61,0,0,1-3.33,24H174.16a157.44,157.44,0,0,0,0-48h38.51A87.61,87.61,0,0,1,216,128ZM102,168H154a115.11,115.11,0,0,1-26,45A115.27,115.27,0,0,1,102,168Zm-3.9-16a140.84,140.84,0,0,1,0-48h59.88a140.84,140.84,0,0,1,0,48ZM40,128a87.61,87.61,0,0,1,3.33-24H81.84a157.44,157.44,0,0,0,0,48H43.33A87.61,87.61,0,0,1,40,128ZM154,88H102a115.11,115.11,0,0,1,26-45A115.27,115.27,0,0,1,154,88Zm52.33,0H170.71a135.28,135.28,0,0,0-22.3-45.6A88.29,88.29,0,0,1,206.37,88ZM107.59,42.4A135.28,135.28,0,0,0,85.29,88H49.63A88.29,88.29,0,0,1,107.59,42.4ZM49.63,168H85.29a135.28,135.28,0,0,0,22.3,45.6A88.29,88.29,0,0,1,49.63,168Zm98.78,45.6a135.28,135.28,0,0,0,22.3-45.6h35.66A88.29,88.29,0,0,1,148.41,213.6Z"/></svg>Домен і хостинг</span>
+          </div></div>
+          <div class="grp"><h3>Пошук</h3><div class="chips">
+            <span class="chip"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"/></svg>SEO-сторінки фільтрів</span><span class="chip"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M69.12,94.15,28.5,128l40.62,33.85a8,8,0,1,1-10.24,12.29l-48-40a8,8,0,0,1,0-12.29l48-40a8,8,0,0,1,10.24,12.3Zm176,27.7-48-40a8,8,0,1,0-10.24,12.3L227.5,128l-40.62,33.85a8,8,0,1,0,10.24,12.29l48-40a8,8,0,0,0,0-12.29ZM162.73,32.48a8,8,0,0,0-10.25,4.79l-64,176a8,8,0,0,0,4.79,10.26A8.14,8.14,0,0,0,96,224a8,8,0,0,0,7.52-5.27l64-176A8,8,0,0,0,162.73,32.48Z"/></svg>Мікророзмітка Schema</span><span class="chip"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M224,128a96,96,0,1,1-21.95-61.09,8,8,0,1,1-12.33,10.18A80,80,0,1,0,207.6,136H128a8,8,0,0,1,0-16h88A8,8,0,0,1,224,128Z"/></svg>Search Console</span><span class="chip"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"/></svg>Google Maps</span>
+          </div></div>
+          <div class="grp"><h3>Реклама та аналітика</h3><div class="chips">
+            <span class="chip"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M248,120a48.05,48.05,0,0,0-48-48H160.2c-2.91-.17-53.62-3.74-101.91-44.24A16,16,0,0,0,32,40V200a16,16,0,0,0,26.29,12.25c37.77-31.68,77-40.76,93.71-43.3v31.72A16,16,0,0,0,159.12,214l11,7.33A16,16,0,0,0,194.5,212l11.77-44.36A48.07,48.07,0,0,0,248,120ZM48,199.93V40h0c42.81,35.91,86.63,45,104,47.24v65.48C134.65,155,90.84,164.07,48,199.93Zm131,8,0,.11-11-7.33V168h21.6ZM200,152H168V88h32a32,32,0,1,1,0,64Z"/></svg>Google Ads</span><span class="chip"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M230.14,58.87A8,8,0,0,0,224,56H62.68L56.6,22.57A8,8,0,0,0,48.73,16H24a8,8,0,0,0,0,16h18L67.56,172.29a24,24,0,0,0,5.33,11.27,28,28,0,1,0,44.4,8.44h45.42A27.75,27.75,0,0,0,160,204a28,28,0,1,0,28-28H91.17a8,8,0,0,1-7.87-6.57L80.13,152h116a24,24,0,0,0,23.61-19.71l12.16-66.86A8,8,0,0,0,230.14,58.87ZM104,204a12,12,0,1,1-12-12A12,12,0,0,1,104,204Zm96,0a12,12,0,1,1-12-12A12,12,0,0,1,200,204Zm4-74.57A8,8,0,0,1,196.1,136H77.22L65.59,72H214.41Z"/></svg>Merchant Center</span><span class="chip"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M232,208a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V48a8,8,0,0,1,16,0V156.69l50.34-50.35a8,8,0,0,1,11.32,0L128,132.69,180.69,80H160a8,8,0,0,1,0-16h40a8,8,0,0,1,8,8v40a8,8,0,0,1-16,0V91.31l-58.34,58.35a8,8,0,0,1-11.32,0L96,123.31l-56,56V200H224A8,8,0,0,1,232,208Z"/></svg>Google Analytics</span><span class="chip"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M243.31,136,144,36.69A15.86,15.86,0,0,0,132.69,32H40a8,8,0,0,0-8,8v92.69A15.86,15.86,0,0,0,36.69,144L136,243.31a16,16,0,0,0,22.63,0l84.68-84.68a16,16,0,0,0,0-22.63Zm-96,96L48,132.69V48h84.69L232,147.31ZM96,84A12,12,0,1,1,84,72,12,12,0,0,1,96,84Z"/></svg>Tag Manager</span>
+          </div></div>
+        </div>
+        <div class="c1-actions">
+          <a class="btn btn-g" href="https://texnoplaza.sumy.ua" target="_blank" rel="noopener">Відкрити сайт<svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg></a>
+        </div>
+      </div>
+
+      <div class="viewer rv d1">
+        <div class="tabs" role="tablist" aria-label="Скріншоти TexnoPlaza">
+          <button role="tab" aria-selected="true" data-i="0">Головна</button>
+          <button role="tab" aria-selected="false" data-i="1">Каталог</button>
+          <button role="tab" aria-selected="false" data-i="2">Картка товару</button>
+          <button role="tab" aria-selected="false" data-i="3">Google Ads</button>
+        </div>
+        <div class="screen">
+          <div class="bar"><i></i><i></i><i></i><span id="scrUrl">texnoplaza.sumy.ua</span></div>
+          <figure class="on" data-url="texnoplaza.sumy.ua" data-cap="Головна: товари-хіти, адреса й графік магазину, пошук по каталогу."><img src="img/tp-home.jpg" alt="Головна сторінка TexnoPlaza з хітами продажів" loading="lazy"></figure>
+          <figure data-url="texnoplaza.sumy.ua/holodylnyky/" data-cap="Каталог: фільтри за брендом, об'ємом, висотою й ціною. Кожен фільтр має окрему SEO-сторінку."><img src="img/tp-cat.jpg" alt="Каталог холодильників з фільтрами" loading="lazy"></figure>
+          <figure data-url="texnoplaza.sumy.ua/holodylnyky/lg-gc-b509smsm/" data-cap="Картка товару: характеристики, галерея, оплата частинами, замовлення у WhatsApp."><img src="img/tp-product.jpg" alt="Картка товару холодильника LG" loading="lazy"></figure>
+          <figure class="fit" data-url="google.com" data-cap="Пошукова реклама і товарні оголошення з Merchant Center у Google."><img src="img/tp-ads.jpg" alt="Оголошення TexnoPlaza у пошуку Google та блок рекламованих товарів" loading="lazy"></figure>
+        </div>
+        <p class="cap" id="scrCap">Головна: товари-хіти, адреса й графік магазину, пошук по каталогу.</p>
+      </div>
+    </div>
+
+    <div class="bento">
+      <div class="cell big rv">
+        <div class="serp" aria-hidden="true">
+          <div class="q"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"/></svg>побутова техніка суми</div>
+          <div class="u">texnoplaza.sumy.ua</div>
+          <div class="t">Магазин побутової та кухонної техніки у Сумах</div>
+        </div>
+        <div>
+          <div class="num">№1</div>
+          <p>в органічній видачі Google за запитом «побутова техніка суми»</p>
+        </div>
+      </div>
+      <div class="cell rv d1"><div class="num" data-count="280">280</div><p>товарів у наявності в 14 категоріях</p></div>
+      <div class="cell rv d2"><div class="stars" aria-label="5 зірок"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/></svg><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/></svg><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/></svg><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/></svg><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M234.29,114.85l-45,38.83L203,211.75a16.4,16.4,0,0,1-24.5,17.82L128,198.49,77.47,229.57A16.4,16.4,0,0,1,53,211.75l13.76-58.07-45-38.83A16.46,16.46,0,0,1,31.08,86l59-4.76,22.76-55.08a16.36,16.36,0,0,1,30.27,0l22.75,55.08,59,4.76a16.46,16.46,0,0,1,9.37,28.86Z"/></svg></div><div><div class="num">5,0<small>/ 71 відгук</small></div><p>рейтинг магазину в Google Maps</p></div></div>
+      <div class="cell img rv d1"><img src="img/tp-cat.jpg" alt="Фільтри каталогу TexnoPlaza" loading="lazy"></div>
+      <div class="cell rv d2"><div class="num">3<small>мови</small></div><p>українська, російська та англійська версії сайту</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0">
+  <div class="wrap">
+    <article class="c2 rv">
+      <div class="c2-media">
+        <div><img src="img/pp-hero.jpg" alt="Перший екран демо-сайту Power Place" loading="lazy"></div>
+        <div><img src="img/pp-zones.jpg" alt="Блок зон залу на демо-сайті" loading="lazy"></div>
+        <div><img src="img/pp-life.jpg" alt="Відео з залу на демо-сайті" loading="lazy"></div>
+      </div>
+      <div class="c2-body">
+        <div>
+          <h3>Power Place: демо-сайт для тренажерного залу у Вінниці</h3>
+          <p>У залу був лише Instagram. Я зібрав демо з їхніх справжніх фото й відео, щоб власник побачив свій майбутній сайт ще до оплати.</p>
+        </div>
+        <div class="c2-side">
+          <div class="chips"><span class="chip"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M251.77,73a8,8,0,0,0-8.21.39L208,97.05V72a16,16,0,0,0-16-16H32A16,16,0,0,0,16,72V184a16,16,0,0,0,16,16H192a16,16,0,0,0,16-16V159l35.56,23.71A8,8,0,0,0,248,184a8,8,0,0,0,8-8V80A8,8,0,0,0,251.77,73ZM192,184H32V72H192V184Zm48-22.95-32-21.33V116.28L240,95Z"/></svg>Відео з залу</span><span class="chip"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M228.88,26.19a9,9,0,0,0-9.16-1.57L17.06,103.93a14.22,14.22,0,0,0,2.43,27.21L72,141.45V200a15.92,15.92,0,0,0,10,14.83,15.91,15.91,0,0,0,17.51-3.73l25.32-26.26L165,220a15.88,15.88,0,0,0,10.51,4,16.3,16.3,0,0,0,5-.79,15.85,15.85,0,0,0,10.67-11.63L231.77,35A9,9,0,0,0,228.88,26.19Zm-61.14,36L78.15,126.35l-49.6-9.73ZM88,200V152.52l24.79,21.74Zm87.53,8L92.85,135.5l119-85.29Z"/></svg>Заявки в Telegram</span><span class="chip"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M176,16H80A24,24,0,0,0,56,40V216a24,24,0,0,0,24,24h96a24,24,0,0,0,24-24V40A24,24,0,0,0,176,16ZM72,64H184V192H72Zm8-32h96a8,8,0,0,1,8,8v8H72V40A8,8,0,0,1,80,32Zm96,192H80a8,8,0,0,1-8-8v-8H184v8A8,8,0,0,1,176,224Z"/></svg>Адаптив</span></div>
+          <a class="btn btn-p" href="https://splendid-melba-fd3707.netlify.app" target="_blank" rel="noopener">Відкрити демо<svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg></a>
+        </div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="offer">
+  <div class="wrap rv">
+    <h2 class="h2">Спочатку безкоштовне демо. <span>Оплата, коли все подобається.</span></h2>
+    <p class="lead">Покажу, як виглядатиме ваш сайт, ще до передоплати. Ви нічим не ризикуєте і бачите результат, а не обіцянки.</p>
+  </div>
+</section>
+
+<section class="sec" id="prices" style="padding-top:0">
+  <div class="wrap">
+    <div class="rv">
+      <span class="eyebrow">Послуги й ціни</span>
+      <h2 class="h2" style="margin-top:16px">Прозорі ціни без студійних націнок</h2>
+    </div>
+    <div class="prices-grid">
+      <div class="price rv"><span class="ic"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M223.85,47.12a16,16,0,0,0-15-15c-12.58-.75-44.73.4-71.41,27.07L132.69,64H74.36A15.91,15.91,0,0,0,63,68.68L28.7,103a16,16,0,0,0,9.07,27.16l38.47,5.37,44.21,44.21,5.37,38.49a15.94,15.94,0,0,0,10.78,12.92,16.11,16.11,0,0,0,5.1.83A15.91,15.91,0,0,0,153,227.3L187.32,193A15.91,15.91,0,0,0,192,181.64V123.31l4.77-4.77C223.45,91.86,224.6,59.71,223.85,47.12ZM74.36,80h42.33L77.16,119.52,40,114.34Zm74.41-9.45a76.65,76.65,0,0,1,59.11-22.47,76.46,76.46,0,0,1-22.42,59.16L128,164.68,91.32,128ZM176,181.64,141.67,216l-5.19-37.17L176,139.31Zm-74.16,9.5C97.34,201,82.29,224,40,224a8,8,0,0,1-8-8c0-42.29,23-57.34,32.86-61.85a8,8,0,0,1,6.64,14.56c-6.43,2.93-20.62,12.36-23.12,38.91,26.55-2.5,36-16.69,38.91-23.12a8,8,0,1,1,14.56,6.64Z"/></svg></span><div><h3>Лендінг</h3></div><div><div class="from">від</div><div class="amt">1 500 <small>грн</small></div></div><p>Одна сторінка під рекламу чи акцію: послуга, переваги, форма заявки.</p><div class="time"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"/></svg>2-4 дні</div></div>
+      <div class="price rv d1"><span class="ic"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M200,112a8,8,0,0,1-8,8H152a8,8,0,0,1,0-16h40A8,8,0,0,1,200,112Zm-8,24H152a8,8,0,0,0,0,16h40a8,8,0,0,0,0-16Zm40-80V200a16,16,0,0,1-16,16H40a16,16,0,0,1-16-16V56A16,16,0,0,1,40,40H216A16,16,0,0,1,232,56ZM216,200V56H40V200H216Zm-80.26-34a8,8,0,1,1-15.5,4c-2.63-10.26-13.06-18-24.25-18s-21.61,7.74-24.25,18a8,8,0,1,1-15.5-4,39.84,39.84,0,0,1,17.19-23.34,32,32,0,1,1,45.12,0A39.76,39.76,0,0,1,135.75,166ZM96,136a16,16,0,1,0-16-16A16,16,0,0,0,96,136Z"/></svg></span><div><h3>Сайт-візитка</h3></div><div><div class="from">від</div><div class="amt">2 500 <small>грн</small></div></div><p>Кілька сторінок про ваш бізнес: послуги, ціни, контакти, карта.</p><div class="time"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"/></svg>4-6 днів</div></div>
+      <div class="price rv d2"><span class="ic"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M104,40H56A16,16,0,0,0,40,56v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,104,40Zm0,64H56V56h48v48Zm96-64H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V56A16,16,0,0,0,200,40Zm0,64H152V56h48v48Zm-96,32H56a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,104,136Zm0,64H56V152h48v48Zm96-64H152a16,16,0,0,0-16,16v48a16,16,0,0,0,16,16h48a16,16,0,0,0,16-16V152A16,16,0,0,0,200,136Zm0,64H152V152h48v48Z"/></svg></span><div><h3>Каталог</h3></div><div><div class="from">від</div><div class="amt">4 000 <small>грн</small></div></div><p>Товари чи послуги з категоріями й фільтрами, без онлайн-оплати.</p><div class="time"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"/></svg>5-8 днів</div></div>
+      <div class="price feat rv d3"><span class="ic"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M232,96a7.89,7.89,0,0,0-.3-2.2L217.35,43.6A16.07,16.07,0,0,0,202,32H54A16.07,16.07,0,0,0,38.65,43.6L24.31,93.8A7.89,7.89,0,0,0,24,96h0v16a40,40,0,0,0,16,32v72a8,8,0,0,0,8,8H208a8,8,0,0,0,8-8V144a40,40,0,0,0,16-32V96ZM54,48H202l11.42,40H42.61Zm50,56h48v8a24,24,0,0,1-48,0Zm-16,0v8a24,24,0,0,1-35.12,21.26,7.88,7.88,0,0,0-1.82-1.06A24,24,0,0,1,40,112v-8ZM200,208H56V151.2a40.57,40.57,0,0,0,8,.8,40,40,0,0,0,32-16,40,40,0,0,0,64,0,40,40,0,0,0,32,16,40.57,40.57,0,0,0,8-.8Zm4.93-75.8a8.08,8.08,0,0,0-1.8,1.05A24,24,0,0,1,168,112v-8h48v8A24,24,0,0,1,204.93,132.2Z"/></svg></span><div><h3>Інтернет-магазин</h3></div><div><div class="from">від</div><div class="amt">6 000 <small>грн</small></div></div><p>Каталог, кошик, замовлення, фільтри та SEO-сторінки, як у TexnoPlaza.</p><div class="time"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M128,24A104,104,0,1,0,232,128,104.11,104.11,0,0,0,128,24Zm0,192a88,88,0,1,1,88-88A88.1,88.1,0,0,1,128,216Zm64-88a8,8,0,0,1-8,8H128a8,8,0,0,1-8-8V72a8,8,0,0,1,16,0v48h48A8,8,0,0,1,192,128Z"/></svg>від 7 днів</div></div>
+      <div class="also rv">
+        <div><div><h3>SEO-аудит і семантика</h3><p>Повний цикл від 8 000 грн, ведення від 3 000 грн/міс</p></div><b>від 3 000 грн</b></div>
+        <div><div><h3>Telegram-бот</h3><p>Меню й FAQ, запис клієнтів, заявки з сайту</p></div><b>від 2 000 грн</b></div>
+        <div><div><h3>Google Ads, Maps, Analytics</h3><p>Налаштування реклами, карток і аналітики</p></div><b>за домовленістю</b></div>
+      </div>
+    </div>
+    <p class="note rv">Домен коштує близько 400 грн на рік. Можу зареєструвати його й налаштувати хостинг або працювати з вашими.</p>
+  </div>
+</section>
+
+<section class="sec" id="process" style="padding-top:40px">
+  <div class="wrap">
+    <h2 class="h2 rv">Як ми працюємо</h2>
+    <div class="steps">
+      <div class="step rv"><span class="dot"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M140,128a12,12,0,1,1-12-12A12,12,0,0,1,140,128ZM84,116a12,12,0,1,0,12,12A12,12,0,0,0,84,116Zm88,0a12,12,0,1,0,12,12A12,12,0,0,0,172,116Zm60,12A104,104,0,0,1,79.12,219.82L45.07,231.17a16,16,0,0,1-20.24-20.24l11.35-34.05A104,104,0,1,1,232,128Zm-16,0A88,88,0,1,0,51.81,172.06a8,8,0,0,1,.66,6.54L40,216,77.4,203.53a7.85,7.85,0,0,1,2.53-.42,8,8,0,0,1,4,1.08A88,88,0,0,0,216,128Z"/></svg></span><h3>Пишете</h3><p>Розповідаєте про бізнес у Direct: що продаєте, для кого, які є фото.</p></div>
+      <div class="step rv d1"><span class="dot"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M216,24H72A40,40,0,0,0,32,64v72a24,24,0,0,0,24,24h48l-7.89,46.67A8.42,8.42,0,0,0,96,208a32,32,0,0,0,64,0,8.42,8.42,0,0,0-.11-1.33L152,160h48a24,24,0,0,0,24-24V32A8,8,0,0,0,216,24ZM72,40H176V80a8,8,0,0,0,16,0V40h16v64H48V64A24,24,0,0,1,72,40ZM200,144H152a16,16,0,0,0-15.84,18.26l0,.2L144,208.6a16,16,0,0,1-32,0l7.8-46.14,0-.2A16,16,0,0,0,104,144H56a8,8,0,0,1-8-8V120H208v16A8,8,0,0,1,200,144Z"/></svg></span><h3>Демо</h3><p>За кілька днів показую безкоштовне демо вашого сайту.</p></div>
+      <div class="step rv d2"><span class="dot"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M69.12,94.15,28.5,128l40.62,33.85a8,8,0,1,1-10.24,12.29l-48-40a8,8,0,0,1,0-12.29l48-40a8,8,0,0,1,10.24,12.3Zm176,27.7-48-40a8,8,0,1,0-10.24,12.3L227.5,128l-40.62,33.85a8,8,0,1,0,10.24,12.29l48-40a8,8,0,0,0,0-12.29ZM162.73,32.48a8,8,0,0,0-10.25,4.79l-64,176a8,8,0,0,0,4.79,10.26A8.14,8.14,0,0,0,96,224a8,8,0,0,0,7.52-5.27l64-176A8,8,0,0,0,162.73,32.48Z"/></svg></span><h3>Розробка</h3><p>Доробляю сайт, наповнюю контентом, узгоджуємо правки.</p></div>
+      <div class="step rv d3"><span class="dot"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M232,208a8,8,0,0,1-8,8H32a8,8,0,0,1-8-8V48a8,8,0,0,1,16,0V156.69l50.34-50.35a8,8,0,0,1,11.32,0L128,132.69,180.69,80H160a8,8,0,0,1,0-16h40a8,8,0,0,1,8,8v40a8,8,0,0,1-16,0V91.31l-58.34,58.35a8,8,0,0,1-11.32,0L96,123.31l-56,56V200H224A8,8,0,0,1,232,208Z"/></svg></span><h3>Запуск і Google</h3><p>Домен, хостинг, Search Console, Maps і аналітика. Сайт починає приводити клієнтів.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <div class="cbox rv">
+      <div>
+        <h2>Обговоримо ваш сайт?</h2>
+        <p>Мене звати Дмитро, я з Сум і працюю віддалено по всій Україні. Напишіть у Direct: підкажу, з чого почати, і зроблю безкоштовне демо.</p>
+        <div style="margin-top:32px"><a class="btn btn-p" href="https://ig.me/m/aswa.web" target="_blank" rel="noopener"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"/></svg>Написати в Instagram</a></div>
+      </div>
+      <div class="igcard">
+        <div class="top"><span class="av"><span><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M69.12,94.15,28.5,128l40.62,33.85a8,8,0,1,1-10.24,12.29l-48-40a8,8,0,0,1,0-12.29l48-40a8,8,0,0,1,10.24,12.3Zm176,27.7-48-40a8,8,0,1,0-10.24,12.3L227.5,128l-40.62,33.85a8,8,0,1,0,10.24,12.29l48-40a8,8,0,0,0,0-12.29ZM162.73,32.48a8,8,0,0,0-10.25,4.79l-64,176a8,8,0,0,0,4.79,10.26A8.14,8.14,0,0,0,96,224a8,8,0,0,0,7.52-5.27l64-176A8,8,0,0,0,162.73,32.48Z"/></svg></span></span><div><b>@aswa.web</b><small>Розробка сайтів | SEO</small></div></div>
+        <ul>
+          <li><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></svg>Розробка «під ключ»</li>
+          <li><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></svg>SEO, Maps, Ads</li>
+          <li><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></svg>Безкоштовне демо до оплати</li>
+        </ul>
+        <a class="btn btn-g" href="https://www.instagram.com/aswa.web/" target="_blank" rel="noopener" style="border-color:rgba(255,255,255,.2)">Профіль в Instagram<svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M200,64V168a8,8,0,0,1-16,0V83.31L69.66,197.66a8,8,0,0,1-11.32-11.32L172.69,72H88a8,8,0,0,1,0-16H192A8,8,0,0,1,200,64Z"/></svg></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <a href="#top" class="logo" style="font-size:17px"><b style="width:28px;height:28px;border-radius:8px"><svg class="i" viewBox="0 0 256 256" aria-hidden="true" focusable="false"><path d="M69.12,94.15,28.5,128l40.62,33.85a8,8,0,1,1-10.24,12.29l-48-40a8,8,0,0,1,0-12.29l48-40a8,8,0,0,1,10.24,12.3Zm176,27.7-48-40a8,8,0,1,0-10.24,12.3L227.5,128l-40.62,33.85a8,8,0,1,0,10.24,12.29l48-40a8,8,0,0,0,0-12.29ZM162.73,32.48a8,8,0,0,0-10.25,4.79l-64,176a8,8,0,0,0,4.79,10.26A8.14,8.14,0,0,0,96,224a8,8,0,0,0,7.52-5.27l64-176A8,8,0,0,0,162.73,32.48Z"/></svg></b><span>aswa<em>.web</em></span></a>
+    <span>Розробка сайтів і SEO. Суми, Україна. © 2026</span>
+    <a href="https://www.instagram.com/aswa.web/" target="_blank" rel="noopener">Instagram @aswa.web</a>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+
+  // active nav
+  var links=[].slice.call(document.querySelectorAll('.nav a'));
+  var nio=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){links.forEach(function(l){l.classList.toggle('on',l.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-45% 0px -50% 0px'});
+  links.forEach(function(l){var s=document.querySelector(l.getAttribute('href')); if(s) nio.observe(s)});
+
+  // screenshot tabs
+  var tabs=[].slice.call(document.querySelectorAll('.tabs button')), figs=[].slice.call(document.querySelectorAll('.screen figure'));
+  var url=document.getElementById('scrUrl'), cap=document.getElementById('scrCap'), cur=0, timer;
+  function show(i){cur=i;tabs.forEach(function(t,j){t.setAttribute('aria-selected',j===i)});figs.forEach(function(f,j){f.classList.toggle('on',j===i)});url.textContent=figs[i].dataset.url;cap.textContent=figs[i].dataset.cap;}
+  tabs.forEach(function(t,i){t.addEventListener('click',function(){show(i);clearInterval(timer)});
+    t.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){var n=(i+(e.key==='ArrowRight'?1:tabs.length-1))%tabs.length;tabs[n].focus();show(n);clearInterval(timer)}})});
+  if(!reduce){ var vio=new IntersectionObserver(function(es){es.forEach(function(e){clearInterval(timer); if(e.isIntersecting){timer=setInterval(function(){show((cur+1)%figs.length)},4500)}})},{threshold:.5}); vio.observe(document.querySelector('.screen')); }
+
+  // counter
+  var c=document.querySelector('[data-count]');
+  if(c && !reduce){ var cio=new IntersectionObserver(function(es){ if(!es[0].isIntersecting) return; cio.disconnect(); var to=+c.dataset.count,t0=null; function st(t){if(!t0)t0=t;var p=Math.min(1,(t-t0)/1400);c.textContent=Math.round(to*(1-Math.pow(1-p,4)));if(p<1)requestAnimationFrame(st)} requestAnimationFrame(st); },{threshold:.6}); cio.observe(c); }
+})();
+</script>
+</body>
+</html>
